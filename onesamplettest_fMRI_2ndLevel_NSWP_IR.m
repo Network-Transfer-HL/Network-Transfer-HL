@@ -1,4 +1,3 @@
-% statistical analysis for fMRI data using SPM12
 %%% Credits:
 % % Author:  Charlotte Jeschina
 % Email:    charlotte.jeschina@student.uni-luebeck.de
