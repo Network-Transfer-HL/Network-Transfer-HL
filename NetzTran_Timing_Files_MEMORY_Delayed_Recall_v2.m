@@ -10,12 +10,9 @@ clear all
 close all
 clc
 
-% workpath_fMRI = ('/Users/AlexandraSobczak/Documents/Projects/NetzTran/1st Level Analysis/DelRecall/'); % Pfad von Alex
-workpath_fMRI = ('/Volumes/mehr platz/NetzTran/fMRI/1st_level_analysis/DelRecall/'); % Pfad von Charlotte
-% workpath_behav = '/Users/AlexandraSobczak/Documents/Projects/NetzTran/'; % Pfad von Alex
-workpath_behav = ('/Volumes/mehr platz/NetzTran/Behaviour/Automatisierung_Onsets_DM/'); % Pfad von Charlotte
-% workpath_log = '/Users/AlexandraSobczak/Documents/Projects/NetzTran/'; % Pfad von Alex
-workpath_log = ('/Volumes/mehr platz/NetzTran/Behaviour/'); % Charlottes Pfad
+workpath_fMRI = ('/...'); % Pfad zu den fMRT Daten
+workpath_behav = ('/...'); % Pfad zu den Daten von den Lernaufgaben
+workpath_log = ('/...'); % Pfad zu den Logfiles
 
 % We want to analyze the cue phase of the stimuli (figure pairs and word pairs) during delayed recall
 
@@ -39,38 +36,14 @@ TR = 1.84; % every 1.84s (1840ms) a volume is acquired
 
 % ---------------------------------------------------------- %
 % all subjects
-VPnr = {'2','3','4','6','7','8','9','11','12','13','14','15','16','18','19','20','21','22','24','25','26','27','28','30','31','32','33','34','38','40','41','42','43','44','45','46','47','48','49','50','52','53'};
-code = {'VP02','VP03','VP04','VP06','VP07','VP08','VP09','VP11','VP12','VP13','VP14','VP15','VP16','VP18','VP19','VP20','VP21','VP22','VP24','VP25','VP26','VP27','VP28','VP30','VP31','VP32','VP33','VP34','VP38','VP40','VP41','VP42','VP43','VP44','VP45','VP46','VP47','VP48','VP49','VP50','VP52','VP53'}; % folder
-CBBM_enco_imm = {'13927','13957','13970','14035','14066','14074','14088','14105','14111','14131','14141','14221','14188','14225','14239','14259','14265','14278','14312','14287','14338','14343','14345','14365','14363','14373','14388','14381','14409','14428','14421','14425','14466','14437','14482','14452','14479','14505','14519','14509','14542','14612'};
-CBBM_del = {'13928','13958','13971','14036','14067','14075','14089','14106','14112','14132','14142','14222','14189','14226','14240','14260','14266','14279','14313','14288','14339','14344','14346','14366','14364','14374','14389','14382','14410','14429','14422','14426','14467','14438','14483','14453','14480','14506','14520','14510','14543','14613'};
+VPnr = {'2','3',...};
+code = {'VP02','VP03',...}; % folder
+CBBM_enco_imm = {'13927',...};
+CBBM_del = {'13928','13958',...};
 
-Task_A = {'F','F','F','N','N','N','F','F','N','F','N','F','N','N','F','F','N','N','N','F','F','F','N','N','N','N','N','N','N','F','N','F','N','N','N','F','F','F','F','N','F','N'};
-Task_B = {'N','N','N','F','F','F','N','N','F','N','F','N','F','F','N','N','F','F','F','N','N','N','F','F','F','F','F','F','F','N','F','N','F','F','F','N','N','N','N','F','N','F'};
+Task_A = {'F',...};
+Task_B = {'N',...};
 
-% ---------------------------------------------------------- %
-% complete and useable, 
-% all except
-% 6 (K=4): ImmRec fMRI missing
-% 7 (K=5): FPA Behaviour excluded
-% 11 (K=8): Arrays have incompatible sizes for this operation.
-%           Error in NetzTran_Timing_Files_MEMORY_Immediate_Recall_v2 (line 273)
-%           targetDur_FPA_run1 = my_onsets.targetOff.FPA_run1-my_onsets.target.FPA_run1;
-% 25 (K=17): CBBM 14287 missing
-% 
-% VPnr = {'2','3','4','8','9','12','13','14','15','16','18','19','20','21','22','24','25','26','27','28','30','31','32','33','34','38','40','41','42','43','44','45','46','47','48','49','50','52','53'};
-% code = {'VP02','VP03','VP04','VP08','VP09','VP12','VP13','VP14','VP15','VP16','VP18','VP19','VP20','VP21','VP22','VP24','VP25','VP26','VP27','VP28','VP30','VP31','VP32','VP33','VP34','VP38','VP40','VP41','VP42','VP43','VP44','VP45','VP46','VP47','VP48','VP49','VP50','VP52','VP53'}; % folder
-% CBBM_enco_imm = {'13927','13957','13970','14074','14088','14111','14131','14141','14221','14188','14225','14239','14259','14265','14278','14312','14287','14338','14343','14345','14365','14363','14373','14388','14381','14409','14428','14421','14425','14466','14437','14482','14452','14479','14505','14519','14509','14542','14612'};
-% CBBM_del = {'13928','13958','13971','14075','14089','14112','14132','14142','14222','14189','14226','14240','14260','14266','14279','14313','14288','14339','14344','14346','14366','14364','14374','14389','14382','14410','14429','14422','14426','14467','14438','14483','14453','14480','14506','14520','14510','14543','14613'};
-% 
-% Task_A = {'F','F','F','N','F','N','F','N','F','N','N','F','F','N','N','N','F','F','F','N','N','N','N','N','N','N','F','N','F','N','N','N','F','F','F','F','N','F','N'};
-% Task_B = {'N','N','N','F','N','F','N','F','N','F','F','N','N','F','F','F','N','N','N','F','F','F','F','F','F','F','N','F','N','F','F','F','N','N','N','N','F','N','F'};
-
-% Versions of the tests need to be corrected for some VP (see overview and supplementary infos Charlotte)
-% these information are only stored here for the sake of documentation and is not used for anything (and therefore commented out)
-% % Enco_version = {1,1,1,1,1,2,5,3,4,3,2,4,2,2,5,6,6,4,3,4,5,5,4,4,5,3,3,3,5,4,6,2,5,4,6,6,5,2,3,3,2,6};
-% % ImmRec_version = {1,1,1,1,1,2,5,3,4,3,2,4,2,2,5,6,6,4,3,4,5,5,4,4,5,3,3,3,5,4,6,2,5,4,6,6,5,2,3,3,2,6};
-% % DelRec_version = {1,1,1,1,1,2,5,3,4,3,2,4,2,2,5,6,6,4,3,4,5,5,4,4,5,3,3,3,5,4,6,2,5,4,6,6,5,2,3,3,2,6};
-% ---------------------------------------------------------- %
 
 %%
 % for K = 40
