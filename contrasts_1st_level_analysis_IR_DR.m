@@ -1,9 +1,18 @@
+%%% Credits:
+% % Author:   Alexandra Sobczak, M.Sc.
+% Email:    alexandra.sobczak@uni-luebeck.de
+% Date:     2023-03-14 (YYYY/MM/DD)
+% Institute:University of Luebeck, IPSY1, Bunzeck Lab
+% Project:  NetzTran
+% % Co-Author/ Edited by: Charlotte Jeschina
+% Email:   charlotte.jeschina@student.uni-luebeck.de
+% Date:     2023-10-12 (YYYY/MM/DD)
+
 % Define the base directory where your SPM data are stored
 baseDir = '/Volumes/mehr platz/NetzTran/fMRI/1st_Level';
 
 % Define subjects and tasks
-% subjects = {'VP02', 'VP03', 'VP04', 'VP06', 'VP07', 'VP08', 'VP09', 'VP11', 'VP12', 'VP13', 'VP14', 'VP15', 'VP18', 'VP19', 'VP20', 'VP21', 'VP22', 'VP24', 'VP26', 'VP27', 'VP28', 'VP30', 'VP31', 'VP32', 'VP33', 'VP34', 'VP38', 'VP40', 'VP41', 'VP42', 'VP43', 'VP44', 'VP45', 'VP46', 'VP47', 'VP48', 'VP49', 'VP50', 'VP52', 'VP53'};
-subjects = {'VP08', 'VP09', 'VP11', 'VP12', 'VP13', 'VP14', 'VP15', 'VP18', 'VP19', 'VP20', 'VP21', 'VP22', 'VP24', 'VP26', 'VP27', 'VP28', 'VP30', 'VP31', 'VP32', 'VP33', 'VP34', 'VP38', 'VP40', 'VP41', 'VP42', 'VP43', 'VP44', 'VP45', 'VP46', 'VP47', 'VP48', 'VP49', 'VP50', 'VP52', 'VP53'};
+subjects = {'VP02',...};
 tasks = {'Memory_Immediate_Recall', 'Memory_Delayed_Recall'};
 
 % Start a loop over tasks and subjects
