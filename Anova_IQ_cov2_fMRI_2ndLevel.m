@@ -12,10 +12,7 @@ if ~exist(resultsDir, 'dir')
 end
 
 % Liste der eingeschlossenen Proband*innen
-% subjects = {'VP02','VP03','VP06','VP08','VP09','VP11','VP12','VP14','VP15','VP18','VP19','VP20','VP21','VP24','VP25','VP27','VP28','VP30','VP32','VP34','VP38','VP40','VP41','VP42','VP43','VP44','VP45','VP46','VP47','VP49','VP50','VP52','VP53'};
-% subjects = {'VP02','VP03','VP06','VP08','VP09','VP11','VP15','VP18','VP19','VP20','VP21','VP24','VP25','VP27','VP28','VP30','VP32','VP34','VP38','VP40','VP41','VP43','VP44','VP45','VP46','VP47','VP49','VP50','VP52','VP53'};
-subjects = {'VP03','VP06','VP08','VP09','VP11','VP15','VP16','VP18','VP19','VP20','VP21','VP24','VP25','VP27','VP28','VP31','VP32','VP34','VP38','VP40','VP41','VP43','VP44','VP45','VP46','VP47','VP50','VP52','VP53'};
-
+subjects = {'VP02','VP03',...};
 % Initialisieren der matlabbatch-Variable
 matlabbatch = {};
 
