@@ -1,3 +1,13 @@
+%%% Credits:
+% % Author:   Alexandra Sobczak, M.Sc.
+% Email:    alexandra.sobczak@uni-luebeck.de
+% Date:     2023-03-14 (YYYY/MM/DD)
+% Institute:University of Luebeck, IPSY1, Bunzeck Lab
+% Project:  NetzTran
+% % Co-Author/ Edited by: Charlotte Jeschina
+% Email:   charlotte.jeschina@student.uni-luebeck.de
+% Date:     2024
+
 function statsBatch
 % statistical analysis for fMRI data using SPM12
 %
