@@ -1,4 +1,4 @@
-- 👋 Hi, I’m Charlotte Jeschina, Medical Student at the Unniversity of Lübeck and PhD-Student in the Network Transfer Study @Network-Transfer-HL
+👋 Hi, I’m Charlotte Jeschina, Medical Student at the Unniversity of Lübeck and PhD-Student in the Network Transfer Study @Network-Transfer-HL
 
 These are the scripts for my fMRI Analysis - Credits are at the tops of the scripts
 
