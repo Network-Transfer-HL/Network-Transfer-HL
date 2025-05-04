@@ -1,6 +1,14 @@
 % statistical analysis for fMRI data using SPM12
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Credits:
+% % Author:   Alexandra Sobczak, M.Sc.
+% Email:    alexandra.sobczak@uni-luebeck.de
+% Date:     2023-03-14 (YYYY/MM/DD)
+% Institute:University of Luebeck, IPSY1, Bunzeck Lab
+% Project:  NetzTran
+% % Co-Author/ Edited by: Charlotte Jeschina
+% Email:   charlotte.jeschina@student.uni-luebeck.de
+% Date:     2023-10-12 (YYYY/MM/DD)
+
 % This script 
 % a) specifies the model,
 % b) estimates the model
@@ -13,10 +21,9 @@
 
 %% Define subject parameters and directories
 % ----------- Pfade definieren ---------- %
-% addpath /Users/AlexandraSobczak/Documents/MATLAB/toolboxes/spm12 % Define SPM in MATLAB path
+
 addpath /Applications/MATLAB_R2021b.app/toolbox/spm12
 
-% spm12dir = '/Users/AlexandraSobczak/Documents/MATLAB/toolboxes/spm12';
 spm12dir = '/Applications/MATLAB_R2021b.app/toolbox/spm12';
 
 fs          = filesep; %file sep
@@ -48,48 +55,12 @@ mkdir DM_Delayed_Recall
 % 
 %for example subject
 % dummy is VP46; files have been copied to a separate folder
-VPnr = {'26','27','28','30','31','32','33','34','38','40','41','42','43','44','45','46','47','48','49','50','52','53'};
-code = {'VP26','VP27','VP28','VP30','VP31','VP32','VP33','VP34','VP38','VP40','VP41','VP42','VP43','VP44','VP45','VP46','VP47','VP48','VP49','VP50','VP52','VP53'}; % folder
-CBBM_enco_imm = {'14338','14343','14345','14365','14363','14373','14388','14381','14409','14428','14421','14425','14466','14437','14482','14452','14479','14505','14519','14509','14542','14612'};
-CBBM_del = {'14339','14344','14346','14366','14364','14374','14389','14382','14410','14429','14422','14426','14467','14438','14483','14453','14480','14506','14520','14510','14543','14613'};
-Task_A = {'F','F','N','N','N','N','N','N','N','F','N','F','N','N','N','F','F','F','F','N','F','N'};
-Task_B = {'N','N','F','F','F','F','F','F','F','N','F','N','F','F','F','N','N','N','N','F','N','F'};
-
-% % Script hat gestoppt bei 16,25
-% VPnr = {'2','3','4','6','7','8','9','11','12','13','14','15','16','18','19','20','21','22','24','25',
-% code = {'VP02','VP03','VP04','VP06','VP07','VP08','VP09','VP11','VP12','VP13','VP14','VP15','VP16','VP18','VP19','VP20','VP21','VP22','VP24','VP25',
-% CBBM_enco_imm = {'13927','13957','13970','14035','14066','14074','14088','14105','14111','14131','14141','14221','14188','14225','14239','14259','14265','14278','14312','14287',
-% CBBM_del = {'13928','13958','13971','14036','14067','14075','14089','14106','14112','14132','14142','14222','14189','14226','14240','14260','14266','14279','14313','14288',
-%  Task_A = {'F','F','F','N','N','N','F','F','N','F','N','F','N','N','F','F','N','N','N','F',
-%  Task_B = {'N','N','N','F','F','F','N','N','F','N','F','N','F','F','N','N','F','F','F','N',
-
-
-% VPnr = {'2','3','4','6','7','8','9','11','12','13','14','15','18','19','20','21','22','24','26','27','28','30','31','32','33','34','38','40','41','42','43','44','45','46','47','48','49','50','52','53'};
-% code = {'VP02','VP03','VP04','VP06','VP07','VP08','VP09','VP11','VP12','VP13','VP14','VP15','VP18','VP19','VP20','VP21','VP22','VP24','VP26','VP27','VP28','VP30','VP31','VP32','VP33','VP34','VP38','VP40','VP41','VP42','VP43','VP44','VP45','VP46','VP47','VP48','VP49','VP50','VP52','VP53'};
-% CBBM_enco_imm = {'13927','13957','13970','14035','14066','14074','14088','14105','14111','14131','14141','14221','14225','14239','14259','14265','14278','14312','14338','14343','14345','14365','14363','14373','14388','14381','14409','14428','14421','14425','14466','14437','14482','14452','14479','14505','14519','14509','14542','14612'};
-% CBBM_del = {'13928','13958','13971','14036','14067','14075','14089','14106','14112','14132','14142','14222','14226','14240','14260','14266','14279','14313','14339','14344','14346','14366','14364','14374','14389','14382','14410','14429','14422','14426','14467','14438','14483','14453','14480','14506','14520','14510','14543','14613'};
-% Task_A = {'F','F','F','N','N','N','F','F','N','F','F','N','N','F','F','N','N','N','F','F','N','N','N','N','N','N','N','F','N','F','N','N','N','F','F','F','F','N','F','N'};
-% Task_B = {'N','N','N','F','F','F','N','N','F','N','N','F','F','N','N','F','F','F','N','N','F','F','F','F','F','F','F','N','F','N','F','F','F','N','N','N','N','F','N','F'};
-
-
-% VPnr = {'12','13','14','15','16','18','19','20','21','22','24','25','26','27','28','30','31','32','33','34','38','40','41','42','43','44','45','46','47','48','49','50','52','53'};
-% code = {'VP12','VP13','VP14','VP15','VP16','VP18','VP19','VP20','VP21','VP22','VP24','VP25','VP26','VP27','VP28','VP30','VP31','VP32','VP33','VP34','VP38','VP40','VP41','VP42','VP43','VP44','VP45','VP46','VP47','VP48','VP49','VP50','VP52','VP53'}; % folder
-% CBBM_enco_imm = {'14111','14131','14141','14221','14188','14225','14239','14259','14265','14278','14312','14287','14338','14343','14345','14365','14363','14373','14388','14381','14409','14428','14421','14425','14466','14437','14482','14452','14479','14505','14519','14509','14542','14612'};
-% CBBM_del = {'14112','14132','14142','14222','14189','14226','14240','14260','14266','14279','14313','14288','14339','14344','14346','14366','14364','14374','14389','14382','14410','14429','14422','14426','14467','14438','14483','14453','14480','14506','14520','14510','14543','14613'};
-%  Task_A = {'N','F','N','F','N','N','F','F','N','N','N','F','F','F','N','N','N','N','N','N','N','F','N','F','N','N','N','F','F','F','F','N','F','N'};
-%  Task_B = {'F','N','F','N','F','F','N','N','F','F','F','N','N','N','F','F','F','F','F','F','F','N','F','N','F','F','F','N','N','N','N','F','N','F'};
-
-
-% VPnr = {'dummy'}; % % hier müssen noch alle Vp-Nummern ergänzt werden 1 bis 53 (exkl. der Probanden, die von der Analyse ausgeschlossen werden sollen)
-% code = {'dummy_F'}; % hier müssen noch alle Ordner-Namen ergänzt werden (exkl. der Probanden, die von der Analyse ausgeschlossen werden sollen)
-% CBBM_enco_imm = {'14452'};
-% CBBM_del = {'14453'};
-% Task_A = {'F','F'};
-% Task_B = {'N','N'};
-% these information are only stored here for the sake of documentation and is not used for anything (and therefore commented out)
-% Enco_version = {6, 6}; % only for information; this information is not used for anything
-% ImmRec_version = {6, 6}; % only for information; this information is not used for anything
-% DelRec_version = {6, 6}; % only for information; this information is not used for anything
+VPnr = {'1',...}; %hier müssen noch alle Vp-Nummern ergänzt werden 1 bis 53 (exkl. der Probanden, die von der Analyse ausgeschlossen werden sollen)
+code = {'VP01',...}; % folder
+CBBM_enco_imm = {'13927',...};
+CBBM_del = {'13928',...};
+Task_A = {'F',...}; % F, wenn FPA als erstes durchgeführt wurde, NN, wenn NSWP als erstes durchgeführt wurde
+Task_B = {'N',...};
 
 
 spm fmri
