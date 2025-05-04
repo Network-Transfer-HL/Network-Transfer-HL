@@ -1,8 +1,16 @@
+% statistical analysis for fMRI data using SPM12
+%%% Credits:
+% % Author:  Charlotte Jeschina
+% Email:    charlotte.jeschina@student.uni-luebeck.de
+% Date:     2024
+% Institute: University of Luebeck, Institute for clinical and experimental Pharmacology and toxicology, AG Marshall
+% Project:  NetzTran
+
+
 % Pfad zur SPM-Direktory und den Daten
 basePath = '/Volumes/CJ_NetzTran/fMRI';
 conPath_IR = fullfile(basePath, '1st_Level/Memory_Immediate_Recall');
-resultsDir = fullfile(basePath, '2nd_Level/29_OneSampleTTest_IR_FPA');
-% resultsDir = fullfile(basePath, '2nd_Level/OneSampleTTest_IR_FPA');
+resultsDir = fullfile(basePath, '2nd_Level/OneSampleTTest_IR_FPA');
 % resultsDir = fullfile(basePath, '2nd_Level/target_OneSampleTTest_IR_FPA');
 addpath('/Applications/MATLAB_R2021b.app/toolbox/spm12')
 
@@ -12,9 +20,7 @@ if ~exist(resultsDir, 'dir')
 end
 
 % Liste der eingeschlossenen Proband*innen
-% subjects = {'VP02','VP03','VP06','VP08','VP09','VP11','VP12','VP14','VP15','VP18','VP19','VP20','VP21','VP24','VP25','VP27','VP28','VP30','VP32','VP34','VP38','VP40','VP41','VP42','VP43','VP44','VP45','VP46','VP47','VP49','VP50','VP52','VP53'};
-% subjects = {'VP02','VP03','VP06','VP08','VP09','VP11','VP15','VP18','VP19','VP20','VP21','VP24','VP25','VP27','VP28','VP30','VP32','VP34','VP38','VP40','VP41','VP43','VP44','VP45','VP46','VP47','VP49','VP50','VP52','VP53'};
-subjects = {'VP03','VP06','VP08','VP09','VP11','VP15','VP16','VP18','VP19','VP20','VP21','VP24','VP25','VP27','VP28','VP31','VP32','VP34','VP38','VP40','VP41','VP43','VP44','VP45','VP46','VP47','VP50','VP52','VP53'};
+subjects = {'VP02',...};
 
 % Initialisieren der matlabbatch-Variable
 matlabbatch = {};
